@@ -24,5 +24,15 @@
 
 ![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_1.png)
 
+说白了，grunt-cli的作用就是能匹配当前目录的grunt，然后在执行相应在Gruntfile.js配置的任务！
+
+好了，假设我们现在已经在全局安装好grunt-cli之后，然后需要在一个已经存在的项目上来跑我们的任务，那我们只需要三步：
+
+_ 1、进入项目根目录下；
+
+_ 2、执行npm install ，这个命令的主要作用就是安装package.json里面包含的插件依赖，会把相关插件安装到当前目录下的node_modules下；
+
+_ 3、然后运行grunt 跑相关任务就可以了。
+
 
 ### 内容待续…………
