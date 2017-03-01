@@ -125,4 +125,27 @@
 
 ![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_2.png)
 
+- 2、相关的任务配置写在grunt.initConfig函数参数中，当然了，因为gruntfile.js是有效的js文件，所以你能够的写的代码不仅限于json，任何有效的js代码都可以写，必要的话，你应该使用js代码来动态配置你的任务！
+
+- 3、相关任务是由对应的grunt插件提供的，这些插件，我们需要把对应插件安装到package.json的依赖中，然后通过一个简单的代码，引入该插件：
+
+```javascript
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+```
+这样就能成功开放相关任务了。使用grunt --help命令可以查看当前项目的注册的任务清单！
+
+
+- 4、当我们注册某个自定义任务的时候，牵连到的任务，个数不论多少，都应该包含在意数组中，如：
+
+```javascript
+	grunt.registerTask('default',['clean','uglify']);
+```
+当然了，我们也可以自定义插件配置任务，这里不讨论！
+
+开始部分到这里就算介绍完成！
+
+### Gruntfile.js配置
+
+
+
 ### 内容待续…………
