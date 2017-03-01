@@ -22,7 +22,7 @@
 
  其实grunt-cli原理很简单，来看下官网对它原理的介绍，如下：
 
-![]()
+![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_1.png)
 
 
 ### 内容待续…………
