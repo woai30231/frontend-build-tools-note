@@ -151,5 +151,76 @@
 
 ![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_3.png)
 
+_ 1、任务（task）以及目标(target)
+
+我们需要知道任务和目标的区别，你可以这样理解，target是task的一个子任务！打个比喻——你现在需要去北京买衣服（task），但是可能你有多个不同的需求（targets），比如你要买一件红色的衣服（其中一个target），又要买一件绿色的衣服（另外一个target），以此类推！这些每个target合起来就是建立这个task的总的需求。同样，我们来看个例子：
+
+![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_4.png)
+
+这里我们看到concat（task）有两个target，分别是foo和bar，而uglify（task）只有一个target，就是bar！当我在命令行使用如下命令时就是同时完成concat的两个任务（foo和bar）：
+
+```bash
+	grunt concat
+```
+
+当我们使用如下命令时，就是分别运行其中一个命令：
+
+```bash
+	grunt concat:foo
+	grunt concat:bar
+```
+
+请记住，任务名字就是属性名。
+
+_ 2、options
+
+在我们配置任务的时候，options属性是用来重写grunt的内置配置信息的，这里需要记住有两个级别的options的配置，一个是任务层（task）的，另外一个是目标层（target）的，target层的会重写task层的options配置信息，而task层的配置信息会重写grunt默认的配置信息！来看一个例子：
+
+![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_5.png)
+
+options是可选的，如果你不需要配置的时候这个选项我们可以省略！
+
+_ 3、files
+
+因为我们在使用grunt的过程中，会用到很多与文件相关的操作，所以grunt提供一套完整的与文件映射（src-dest）的操作！所有的任务都支持src和dest属性，但是"简约"和"文件数组"形式的还支持下面额外的属性：
+
+> **filter** 用来要过滤匹配的文件，可以是string或function返回布尔值；
+
+> **nonull** 如果设置为true的话，那么将会包含不匹配的文件，同时在使用grunt的过程中，加上--verbose标志，那么就是用来调试路径信息；
+
+> **dot** 它允许模式模式匹配句点开头的文件名，即使模式并不明确文件名开头部分是否有句点；
+
+> **matchBase** 如果设置这个属性，缺少斜线的模式(意味着模式中不能使用斜线进行文件路径的匹配)将不会匹配包含在斜线中的文件名。 例如，a?b将匹配/xyz/123/acb但不匹配/xyz/acb/123；
+
+> **expand** 这个主要是处理动态文件目录。
+
+_ 4、grunt的options和task的options的区别
+
+grunt的options主要是为了让grunt插件作者不必要重复实现相关的操作，但同时作者也是实现插件内置的操作，来看一个例子：
+
+
+![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_6.png)
+
+这里jshint使用了grunt的options:src和filter，但同时jshint使用了jshint自己的options操作！
+
+
+_ 5、简约模式
+
+我们在写文件映射（src-dest）的时候，可以使用一种简洁的写法，这样会减少相关的代码量，主要用于单一的源文件映射单一的目标文件，并且只读的！来看一个例子：
+
+![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_7.png)
+
+_ 6、文件对象模式
+
+这种形式主要用于多个原文件对应一个目标文件，其中属性名就是目标文件，属性值就是源文件。但是这种模式不能添加额外的文件操作属性。来看一个例子：
+
+![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_8.png)
+
+_ 7、文件数组模式
+
+这个形式支持多源文件对应单一目标文件，并可设置额外文件操作属性。来看一个例子：
+
+![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_9.png)
+
 
 ### 内容待续…………
