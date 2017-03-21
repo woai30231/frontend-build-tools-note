@@ -222,5 +222,90 @@ _ 7、文件数组模式
 
 ![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_9.png)
 
+_ 8、老文件映射模式
+
+这种模式以属性名直接当作目标文件，但是这种模式使用多target的任务时候不是很方便，所以应该避免这种模式。来看例子：
+
+![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_10.png)
+
+我们可以看到，这里是不能使用grunt task:target这种模式去运行一个任务的。
+
+_ 9、自定义过滤函数
+
+通过给target添加一个filter属性来为匹配源提供更细致的匹配规则，来看一个例子：
+
+![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_11.png)
+
+这里我们可以看到，通过提供filter属性，要求我们匹配到的源必须是一个实际的文件！
+
+当然了，我们也可以filter设置成一个回调函数，用来根据是否匹配来返回true或false。例如下面的用来实现匹配一个空目录：
+
+![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_12.png)
+
+_ 10、通配符匹配
+
+我们在写src-dest映射的时候，一个一个地去写每个文件总是不实际的，因为很难扩展，而且过程是枯燥无味的，所以我们需要一种通配模式去动态匹配文件。在用这种技术的时候，每个符号的含义如下：
+
+> **'*'** 匹配多个字符，但不包括"/"；
+
+> **?** 匹配单个字符，不包括'/'；
+
+> **'**'** 匹配多个字符，包括'/'；
+
+> **{}** 匹配字符域；
+
+> **!** 表示非。
+
+来看一个例子：
+
+![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_13.png)
+
+这里只需要记住的一点是操作文件的时候是按照定义匹配规则时候的顺序进行操作的！如上图中的顺序！
+
+_ 11、构建动态匹配文件
+
+如果我们需要很多单独的文件的时候，我们就希望构建动态文件映射，适用于“简约”和“文件数组”模式，我们需要设置expand属性来开启动态模式。相关属性含义如下：
+
+> **expand** 设置为true，开启动态模式；
+
+> **cwd** 所有的源文件的路径都相对于cwd计算；
+
+> **src** 相对于cwd路径的匹配模式；
+
+> **dest** 目标文件路径前缀；
+
+> **ext** 对于生成的dest路径中所有实际存在文件，均使用这个属性值替换扩展名；
+
+> **extDot** 用于指定标记扩展名的英文点号的所在位置。可以赋值 'first' （扩展名从文件名中的第一个英文点号开始） 或 'last' （扩展名从最后一个英文点号开始），默认值为 'first' [添加于 0.4.3 版本]；
+
+> **flatten** 从生成的dest路径中移除所有的路径部分；
+
+> **rename** 对每个匹配的src文件调用这个函数(在重命名后缀和移除路径之后)。dest和匹配的src路径将被作为参数传入，此函数应该返回一个新的dest值。 如果相同的dest返回不止一次，那么，每个返回此值的src来源都将被添加到一个数组中作为源列表。
+
+我们来看一个例子，下面的两个target其实完成的任务是一样的，但是动态的更灵活一点：
+
+![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_14.png)
+
+_ 12、rename属性
+
+rename属性是独一无二的，rename的属性值必须是一个函数，即时返回的是一个简单的值也不能直接写成一个字符串，这样会报错的。来看下一个实现备份的例子。如下：
+
+![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_15.png)
+
+_ 13、模板
+
+模板以<%=  %>作为分隔符！说白了，就是一种动态插入内容的例子，直接看图就好理解了。如下：
+
+![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_16.png)
+
+_ 14、引入外部数据
+
+这种技术主要应用于将外部文件用到本文件中，其原理就是使用到读取外部文件等相关操作！来看例子：
+
+![](https://github.com/woai30231/frontend-build-tools-note/blob/master/image/grunt_17.png)
+
+好，到这里，我们grunt的配置等相关介绍内容完毕！
+
+### grunt documentation
 
 ### 内容待续…………
