@@ -22,6 +22,16 @@ module.exports = {
             {
                 test:/\.css$/,
                 loader: 'style-loader!css-loader?modules!postcss-loader'//跟前面相比就在后面加上了?modules
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?/,
+                loader: 'url-loader?limit=100000&name=./assets/[hash].[ext]',
+                // options: {
+                //     limit: 100000
+                // }
+                // query:{
+                //     limit: 100000
+                // }
             }
         ]        
     },

@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 process.env.NODE_ENV = 'production';
 
 module.exports = {
@@ -43,6 +44,18 @@ module.exports = {
                 fallback: "style-loader",
                 use: "css-loader?modules!postcss-loader"
                 })
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 100000,
+                            name: './assets/[hash].[ext]'
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -55,6 +68,12 @@ module.exports = {
         new ExtractTextPlugin('[name]-[hash].css'),
         new CleanWebpackPlugin(['build'],{
             root:__dirname
-        })
+        }),
+        new CopyWebpackPlugin([
+            {
+                from:'./app/image/**/*',
+                to:'image/[name].[ext]'
+            }
+        ])
     ]
 }
