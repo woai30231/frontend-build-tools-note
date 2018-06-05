@@ -80,6 +80,10 @@
 
 **这里的webpack版本是4.0+，请知悉！**
 
+[webpack tree shaking(去掉没实际用的模块方法和属性)功能](https://github.com/woai30231)
+
+[webpack Code splitting 代码分割 提取公共代码](https://github.com/woai30231)
+
 ## 相关配置过程说明及api介绍如下
 
 # 这部分内容未完待续……
