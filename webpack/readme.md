@@ -80,6 +80,8 @@
 
 **这里的webpack版本是4.0+，请知悉！**
 
+[webpack 安装教程](https://github.com/woai30231/frontend-build-tools-note/blob/master/webpack/guide-artical/001.md)
+
 [webpack tree shaking(去掉没实际用的模块方法和属性)功能](https://github.com/woai30231)
 
 [webpack Code splitting 代码分割 提取公共代码](https://github.com/woai30231)
