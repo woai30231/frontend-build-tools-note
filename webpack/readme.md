@@ -76,13 +76,15 @@
 
 #### 说明
 
-因为网上有太多的文章介绍怎么使用webpack了，所以我在这里就不向重复造轮子了，原因有两个：1 别人已经写得够好了，所以我不想重复写，可能我写得不够完善，反而让你对webpack更敬而远之；2 我觉得学习一个东西你更多是需要实际使用它，所以写得看得再多，实际意义不大，所以我只会在这里结合实际使用场景介绍一下webpack比较特出有意义的功能或api！
+因为网上有太多的文章介绍怎么使用webpack了，所以我在这里就不向重复造轮子了，原因有两个：1 别人已经写得够好了，所以我不想重复写，可能我写得不够完善，反而让你对webpack更敬而远之；2 我觉得学习一个东西你更多是需要实际使用它，所以写得看得再多，实际意义不大，所以我只会在这里结合实际使用场景介绍一下webpack比较特出有意义的功能或api！另外其中表达的大部分思想是借鉴或者直接摘自webpack官网教程！
 
-**这里的webpack版本是4.0+，请知悉！**
+**注：这里的webpack版本是4.0+，请知悉！还有下面的文档彼此之间存在一定的联系关系，譬如：后一篇文档可能在前一篇的文档基础上进行演示的，如果在查看的过程中，发现某处文档有连续性问题，请回头从前一篇文档看起！！！**
 
 [webpack 安装教程](https://github.com/woai30231/frontend-build-tools-note/blob/master/webpack/guide-artical/001.md)
 
 [快速开始](https://github.com/woai30231/frontend-build-tools-note/blob/master/webpack/guide-artical/002.md)
+
+[webpack静态文件管理](https://github.com/woai30231/frontend-build-tools-note/blob/master/webpack/guide-artical/003.md)
 
 [webpack tree shaking(去掉没实际用的模块方法和属性)功能](https://github.com/woai30231)
 
