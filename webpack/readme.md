@@ -100,6 +100,8 @@
 
 [webpack 生产环境](https://github.com/woai30231/frontend-build-tools-note/blob/master/webpack/guide-artical/008.md)
 
+[webpack Code splitting代码分离](https://github.com/woai30231/frontend-build-tools-note/blob/master/webpack/guide-artical/009.md)
+
 
 ## 相关配置过程说明及api介绍如下
 
